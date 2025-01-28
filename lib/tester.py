@@ -51,6 +51,43 @@ def create_test_cases(name: str, test_cases: List,
     else:
         return "\n\n".join(messages)
 
+def test_variable_definition(namespace, variable_name="answer"):
+    # Check if the variable `answer` is defined
+    if variable_name not in namespace:
+        return i18n.gettext("variable_not_defined").format(variable_name)
+
+    # Check if the variable has the expected value
+    if namespace[variable_name] == 42:
+        return i18n.gettext("variable_correct").format(variable_name, 42)
+    else:
+        return i18n.gettext("variable_incorrect").format(variable_name, 42, namespace[variable_name])
+
+def test_arithmetic_operations(namespace, variable_name="result"):
+    """
+    Tests the student's implementation of the arithmetic task.
+    
+    Parameters:
+    - namespace: The namespace (globals) where the variable is defined.
+    - variable_name: The name of the variable to check (default: 'result').
+
+    Returns:
+    - A string with feedback on the test results.
+    """
+    # Check if the variable `result` is defined
+    if variable_name not in namespace:
+        return i18n.gettext("variable_not_defined").format(variable_name)
+
+    # Check if the variable has the expected value
+    expected_value = (10 + 2) * 3 - (4 / 2)  # Calculate expected result
+    student_value = namespace[variable_name]
+
+    if student_value is not None and np.isclose(student_value, expected_value, rtol=1e-5, atol=0):
+        return i18n.gettext("variable_correct").format(variable_name, expected_value)
+    else:
+        return i18n.gettext("variable_incorrect").format(
+            variable_name, expected_value, student_value
+        )
+
 def test_blackbody_radiation(student_func):
     """
     Tests the student's implementation of the black body radiation law function.
