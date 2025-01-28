@@ -1,4 +1,4 @@
-from .i18n import I18N
+from lib.i18n import I18N
 
 i18n = I18N(path='locale')
 
