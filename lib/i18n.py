@@ -11,7 +11,7 @@ class I18N:
             cls._instance = super(I18N, cls).__new__(cls)
         return cls._instance
 
-    def __init__(self, path='locale', locale='en_CA', images_url=''):
+    def __init__(self, path='../locale', locale='en_CA', images_url=''):
         """
         Initialize the I18N class with the path to the locale files and the desired locale.
 
