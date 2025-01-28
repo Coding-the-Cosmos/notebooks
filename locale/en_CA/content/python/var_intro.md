@@ -30,6 +30,6 @@ Comments start with `#` and are ignored by the computer. They are useful for exp
 # This is a comment and will not run
 ```
 
-Example: Assigning Variables
+#### Example: Assigning Variables
 
 Here's how to assign variables and print them:
