@@ -60,7 +60,7 @@ class I18N:
 
         md_content = self._load_markdown(filename)
         if self.images_url != '':
-            md_content = re.sub(r'<img src="media/', f'<img src="{self.images_url}/', md_content)
+            md_content = re.sub(r'<img src="../media/', f'<img src="{self.images_url}/', md_content)
 
         display(Markdown(md_content))
 

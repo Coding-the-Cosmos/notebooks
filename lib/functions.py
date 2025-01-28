@@ -30,3 +30,15 @@ def peak_wavelength(temp):
     b = 2.897e-3  # Wien's displacement constant in meter-Kelvin
     lambda_max = b / temp
     return lambda_max
+
+def convert_to_freq_cm(frequencies_cm):
+    """ Convert frequencies from cm^-1 to m """
+    return 1 / (frequencies_cm * 100)
+
+def convert_to_mjy_sr(spectral_radiance, wavelength):
+    """ Convert spectral radiance from W/m^2/sr/m to Mjy/sr """
+    jansky_conversion = 1e26  # 1 W/m^2/Hz = 10^26 Jy
+    # Convert spectral radiance to per Hz unit
+    spectral_radiance_hz = spectral_radiance * wavelength**2 / c
+    # Convert to Mjy/sr
+    return spectral_radiance_hz * jansky_conversion * 1e-6
