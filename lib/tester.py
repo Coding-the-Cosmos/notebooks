@@ -51,7 +51,7 @@ def create_test_cases(name: str, test_cases: List,
     else:
         return "\n\n".join(messages)
 
-def test_variable_definition(namespace, variable_name="answer"):
+def variable_definition(namespace, variable_name="answer"):
     # Check if the variable `answer` is defined
     if variable_name not in namespace:
         return i18n.gettext("variable_not_defined").format(variable_name)
@@ -62,7 +62,7 @@ def test_variable_definition(namespace, variable_name="answer"):
     else:
         return i18n.gettext("variable_incorrect").format(variable_name, 42, namespace[variable_name])
 
-def test_arithmetic_operations(namespace, variable_name="result"):
+def arithmetic_operations(namespace, variable_name="result"):
     """
     Tests the student's implementation of the arithmetic task.
     
@@ -88,7 +88,7 @@ def test_arithmetic_operations(namespace, variable_name="result"):
             variable_name, expected_value, student_value
         )
 
-def test_blackbody_radiation(student_func):
+def blackbody_radiation(student_func):
     """
     Tests the student's implementation of the black body radiation law function.
     
@@ -121,7 +121,7 @@ def test_blackbody_radiation(student_func):
         formatter
     )
 
-def test_peak_wavelength(student_func):
+def peak_wavelength(student_func):
     """
     Tests the student's implementation for calculating the peak wavelength of black body
     radiation for a given temperature using Wien's Law.
